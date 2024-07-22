@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicación</title>
+    <script defer>
+        const obtenerNumero = () => {
+            let numero = parseInt(prompt("Ingrese un número entre 1 y 20"));
+            if (numero < 1 || numero > 20 || isNaN(numero)) {
+                console.log("Número fuera del rango");
+                return null;
+            }
+            return numero;
+        };
+
+        const mostrarResultados = (numero) => {
+            console.log(`\n%cTabla de Multiplicar para ${numero}:\n`, 'color: pink; font-weight: bold;');
+            // Bucle para las tablas de multiplicar
+            for (let i = 1; i <= numero; i++) {
+                console.log(`%c${i} x %c${numero}%c = ${i * numero}`,
+                    '',                // Estilo para consola
+                    'color: red;',     
+                    '');               
+            }
+
+            console.log(`\n%cFactoriales del 1 al ${numero}:\n`, 'color: pink; font-weight: bold;');
+
+            // Bucle para calcular y mostrar los factoriales
+            for (let i = 1; i <= numero; i++) {
+                let factorial = 1;
+                // Bucle anidado para calcular el factorial de i
+                for (let j = 1; j <= i; j++) {
+                    factorial *= j;
+                }
+                console.log(`Factorial de %c${i}%c es: %c${factorial}`,
+                    'color: red; font-weight: bold;',    // Estilo para consola
+                    '',                                   
+                    'color: green; font-weight: bold;');  
+            }
+        };
+
+    // Ejecución
+    const numero = obtenerNumero();
+    if (numero !== null) {
+        mostrarResultados(numero);
+    }
+    </script>
+</head>
+
+<body>
+    <h1>Tabla de Multiplicar y Factorial</h1>
+    <p>Abre la consola para ver los resultados.</p>
+</body>
+
+</html>
